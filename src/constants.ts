@@ -11,34 +11,34 @@ export const DEFAULT_PARAMS: DiarizationParams = {
 export const SAMPLE_AUDIO_MEETINGS: AudioSample[] = [
   {
     id: 'sprint_planning_hinglish',
-    name: 'Weekly Sprint Planning (Hinglish/English)',
+    name: 'Standard Meeting Session (Acoustic Diarization)',
     duration: 120,
-    description: 'Weekly scrum planning between PM Amit, Dev Priya, and DevOps Raj discussing Sprint tasks in an office environment with occasional overlapping conversation.',
+    description: 'A robust multi-speaker acoustic session with distinct voices (Speaker A, Speaker B, Speaker C) showing overlapping speech blocks.',
     segments: [
-      { id: '1', speaker: 'Amit (PM)', start: 0.0, end: 12.4, text: "Okay team, let's start today's sprint planning. Humare paas do main priorities hain - first is migration and second is ASR performance.", confidence: 0.94, language: 'Hinglish' },
-      { id: '2', speaker: 'Priya (Dev)', start: 12.8, end: 28.5, text: "Correct Amit. Maine Stage 1 VAD pipeline test kiya tha. It's working, but background noise ki wajah se false positives aa rahe hain, especially AC hum ki wajah se.", confidence: 0.88, language: 'Hinglish' },
-      { id: '3', speaker: 'Raj (DevOps)', start: 29.0, end: 41.2, text: "I can check that. I think if we adjust the silence threshold in WebRTC VAD, or switch to the Silero VAD model, it should filter out the constant AC noise.", confidence: 0.92, language: 'English' },
-      { id: '4', speaker: 'Priya (Dev)', start: 40.8, end: 45.6, text: "Haan, Raj, switch to Silero would be better. Uska ONNX runtime bohot efficient hai.", confidence: 0.91, language: 'Hinglish' },
-      { id: '5', speaker: 'Amit (PM)', start: 46.0, end: 58.3, text: "Excellent. Let's make that a sprint ticket. Ab Stage 2 Diarization ki baat karte hain. Are we using Pyannote 3.0 ONNX? Who is working on this?", confidence: 0.96, language: 'Hinglish' },
-      { id: '6', speaker: 'Priya (Dev)', start: 58.8, end: 72.4, text: "Yes Amit, I am on it. Pyannote 3.0 ko ONNX export kiya hai, CPU standard par performance looks solid, DER is around 14% on our accented datasets.", confidence: 0.93, language: 'Hinglish' },
-      { id: '7', speaker: 'Raj (DevOps)', start: 72.8, end: 85.1, text: "And since we run locally with CPU only, ONNX export helps us achieve around 3x real-time speed. That means a 1-minute audio is processed in under 20 seconds.", confidence: 0.95, language: 'English' },
-      { id: '8', speaker: 'Amit (PM)', start: 84.8, end: 92.5, text: "Wait, does it handle overlapping speech properly? Meetings mein to log ek sath bolte hain.", confidence: 0.91, language: 'Hinglish' },
-      { id: '9', speaker: 'Priya (Dev)', start: 91.5, end: 104.2, text: "Exactly Amit, that is Pyannote's biggest strength. In case of overlap, it registers multiple speaker labels for the same timeframe, which we can route to ASR.", confidence: 0.89, language: 'English' },
-      { id: '10', speaker: 'Amit (PM)', start: 104.5, end: 120.0, text: "Perfect. Let's secure the API contract with Stage 3 Speaker Identification so that once we have the speaker boundaries, we can look up their ECAPA-TDNN voice prints.", confidence: 0.97, language: 'English' }
+      { id: '1', speaker: 'Speaker A', start: 0.0, end: 12.4, text: "Acoustic Signature: Mid-pitch, clean resonance profile.", confidence: 0.94, language: 'Mid Range' },
+      { id: '2', speaker: 'Speaker B', start: 12.8, end: 28.5, text: "Acoustic Signature: High-pitch register, rapid tempo.", confidence: 0.88, language: 'High Range' },
+      { id: '3', speaker: 'Speaker C', start: 29.0, end: 41.2, text: "Acoustic Signature: Low-pitch voice, deep chest resonance.", confidence: 0.92, language: 'Low Range' },
+      { id: '4', speaker: 'Speaker B', start: 40.8, end: 45.6, text: "Acoustic Signature: High-pitch register, active overlap.", confidence: 0.91, language: 'High Range' },
+      { id: '5', speaker: 'Speaker A', start: 46.0, end: 58.3, text: "Acoustic Signature: Mid-pitch vocal pattern with standard tempo.", confidence: 0.96, language: 'Mid Range' },
+      { id: '6', speaker: 'Speaker B', start: 58.8, end: 72.4, text: "Acoustic Signature: High-pitch vocal pattern with high intonation.", confidence: 0.93, language: 'High Range' },
+      { id: '7', speaker: 'Speaker C', start: 72.8, end: 85.1, text: "Acoustic Signature: Low-pitch deep voice, stable vocal envelope.", confidence: 0.95, language: 'Low Range' },
+      { id: '8', speaker: 'Speaker A', start: 84.8, end: 92.5, text: "Acoustic Signature: Mid-pitch query with falling intonation.", confidence: 0.91, language: 'Mid Range' },
+      { id: '9', speaker: 'Speaker B', start: 91.5, end: 104.2, text: "Acoustic Signature: High-pitch clarification segment.", confidence: 0.89, language: 'High Range' },
+      { id: '10', speaker: 'Speaker A', start: 104.5, end: 120.0, text: "Acoustic Signature: Mid-pitch summary envelope with stable cadence.", confidence: 0.97, language: 'Mid Range' }
     ]
   },
   {
     id: 'tech_sync_hindi',
-    name: 'Technical Architecture Alignment (Hindi/Hinglish)',
+    name: 'Two-Speaker Discussion (Acoustic Separation)',
     duration: 90,
-    description: 'Dev alignment session focusing on CPU execution optimization, CT2 quantization, and database sync rules.',
+    description: 'Dual-speaker conversation tracking alternating speaker turns and silence thresholds.',
     segments: [
-      { id: '1', speaker: 'Raj (DevOps)', start: 0.0, end: 14.2, text: "Okay guys, quick update on the CPU optimization. CTranslate2 integration complete ho chuki hai and we are getting a 2x throughput jump.", confidence: 0.93, language: 'Hinglish' },
-      { id: '2', speaker: 'Priya (Dev)', start: 14.8, end: 32.5, text: "Great news Raj! Translation module (Stage 6) ke liye, what is the memory footprint of IndicTrans2? Is it under 1.5 GB?", confidence: 0.91, language: 'Hinglish' },
-      { id: '3', speaker: 'Raj (DevOps)', start: 33.0, end: 48.6, text: "Yes, INT8 quantization ke baad memory is roughly 1.0 GB. So we have enough RAM left for Stage 7 LLaMA.cpp which runs on 2.4 GB GGUF.", confidence: 0.95, language: 'English' },
-      { id: '4', speaker: 'Priya (Dev)', start: 49.0, end: 65.3, text: "Achaa, and database rule setup? Are we using local JSON files or SQLite? Kyunki on-premise architecture mein local disk write hi target kiya hai.", confidence: 0.89, language: 'Hindi' },
-      { id: '5', speaker: 'Amit (PM)', start: 65.8, end: 78.4, text: "We decided to flush session state to a local JSON file first, and retrieve reports via a simple GET endpoint `/report/{id}`. This is perfect for the desktop clients.", confidence: 0.96, language: 'English' },
-      { id: '6', speaker: 'Raj (DevOps)', start: 78.9, end: 90.0, text: "Perfect, so pipeline is solid. VAD gates diarization, which then feeds ASR and subsequent stages. Everything remains in-memory until final flushing.", confidence: 0.94, language: 'English' }
+      { id: '1', speaker: 'Speaker A', start: 0.0, end: 14.2, text: "Acoustic Signature: Mid-pitch, standard speed.", confidence: 0.93, language: 'Mid Range' },
+      { id: '2', speaker: 'Speaker B', start: 14.8, end: 32.5, text: "Acoustic Signature: High-pitch speaker, prompt turns.", confidence: 0.91, language: 'High Range' },
+      { id: '3', speaker: 'Speaker A', start: 33.0, end: 48.6, text: "Acoustic Signature: Mid-pitch resonant reinforcement.", confidence: 0.95, language: 'Mid Range' },
+      { id: '4', speaker: 'Speaker B', start: 49.0, end: 65.3, text: "Acoustic Signature: High-pitch question envelope.", confidence: 0.89, language: 'High Range' },
+      { id: '5', speaker: 'Speaker C', start: 65.8, end: 78.4, text: "Acoustic Signature: Low-pitch baseline speaker.", confidence: 0.96, language: 'Low Range' },
+      { id: '6', speaker: 'Speaker A', start: 78.9, end: 90.0, text: "Acoustic Signature: Mid-pitch concluding remarks.", confidence: 0.94, language: 'Mid Range' }
     ]
   }
 ];
