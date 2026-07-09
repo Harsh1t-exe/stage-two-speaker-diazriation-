@@ -1,0 +1,6 @@
+{
+  "name": "Speaker Diarization Workstation",
+  "description": "Interactive testing workstation, parameter optimizer, schema designer, and exportable Python integration code for Pyannote 3.0 ONNX Speaker Diarization.",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
