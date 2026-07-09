@@ -18,3 +18,8 @@ View your app in AI Studio: https://ai.studio/apps/2b4a990f-8179-401f-9c42-288db
 2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
 3. Run the app:
    `npm run dev`
+
+demo
+   https://speaker-diarization-workstation-950976396498.asia-southeast1.run.app
+
+   
